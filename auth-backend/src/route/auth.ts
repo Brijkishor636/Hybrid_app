@@ -1,6 +1,11 @@
+import { PrismaClient } from "@prisma/client";
 import express from "express";
+import bcrypt from "bcrypt"
+import jwt, {Secret} from "jsonwebtoken"
 
 const userRouter = express.Router();
+
+const prisma = new PrismaClient();
 
 userRouter.post("/signup", async (req, res)=>{
     const body = req.body;
